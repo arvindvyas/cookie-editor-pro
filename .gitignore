@@ -1,0 +1,11 @@
+# Raw captures & generated store assets — these embed REAL session cookies. Never commit.
+assets/raw/
+assets/store/
+assets/html/
+assets/*.ttf
+
+# Build output
+*.zip
+
+# OS / editor
+.DS_Store

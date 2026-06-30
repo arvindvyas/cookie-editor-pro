@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookie Editor Pro</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <!-- LIST VIEW -->
+  <div id="listView" class="view">
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">🍪</span>
+        <div class="brand-text">
+          <strong>Cookie Editor</strong>
+          <span id="siteLabel" class="site-label">—</span>
+        </div>
+      </div>
+      <div class="scope">
+        <button id="scopeSite" class="scope-btn active" data-scope="site">This site</button>
+        <button id="scopeAll" class="scope-btn" data-scope="all">All</button>
+      </div>
+      <button id="settingsBtn" class="icon-btn" title="Settings — allow/block lists & auto-clean">⚙</button>
+    </header>
+
+    <div class="searchbar">
+      <input id="search" type="text" placeholder="Search cookies by name, value, or domain…" autocomplete="off" />
+      <span id="count" class="count">0</span>
+    </div>
+
+    <main id="cookieList" class="cookie-list"></main>
+
+    <footer class="actions">
+      <button id="addBtn" class="btn primary">+ Add</button>
+      <button id="exportBtn" class="btn">Export</button>
+      <button id="importBtn" class="btn">Import</button>
+      <button id="deleteAllBtn" class="btn danger">Delete all</button>
+      <input id="importFile" type="file" accept="application/json" hidden />
+    </footer>
+  </div>
+
+  <!-- EDIT VIEW -->
+  <div id="editView" class="view hidden">
+    <header class="topbar">
+      <button id="backBtn" class="icon-btn" title="Back">←</button>
+      <strong id="editTitle">Edit cookie</strong>
+    </header>
+
+    <form id="editForm" class="edit-form">
+      <label>Name <input id="f-name" type="text" required /></label>
+      <label>Value <textarea id="f-value" rows="3"></textarea></label>
+      <label>Domain <input id="f-domain" type="text" placeholder="example.com" required /></label>
+      <label>Path <input id="f-path" type="text" value="/" required /></label>
+      <label>Expiration
+        <select id="f-exptype">
+          <option value="session">Session (expires on close)</option>
+          <option value="date">Specific date/time</option>
+        </select>
+      </label>
+      <label id="f-expdate-wrap" class="hidden">Expiry date
+        <input id="f-expdate" type="datetime-local" />
+      </label>
+      <label>SameSite
+        <select id="f-samesite">
+          <option value="unspecified">Unspecified</option>
+          <option value="no_restriction">None</option>
+          <option value="lax">Lax</option>
+          <option value="strict">Strict</option>
+        </select>
+      </label>
+      <div class="flags">
+        <label class="checkbox"><input id="f-secure" type="checkbox" /> Secure</label>
+        <label class="checkbox"><input id="f-httponly" type="checkbox" /> HttpOnly</label>
+        <label class="checkbox"><input id="f-hostonly" type="checkbox" /> Host only</label>
+      </div>
+
+      <div class="edit-actions">
+        <button type="submit" class="btn primary">Save</button>
+        <button type="button" id="protectBtn" class="btn">🔒 Protect</button>
+        <button type="button" id="deleteBtn" class="btn danger">Delete</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

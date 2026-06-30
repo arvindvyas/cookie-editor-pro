@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cookie Editor Pro — Settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="hd">
+      <span class="logo">🍪</span>
+      <div>
+        <h1>Cookie Editor Pro — Settings</h1>
+        <p class="sub">Allow / block lists & automatic cleaning. Everything runs locally.</p>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>🚫 Block list</h2>
+      <p class="hint">Cookies whose domain matches any pattern below are automatically deleted.</p>
+      <textarea id="blocklist" rows="6" placeholder="*.doubleclick.net&#10;*.ads.example.com&#10;/(^|\.)tracker\.com/i"></textarea>
+    </section>
+
+    <section class="card">
+      <h2>✅ Allow list</h2>
+      <p class="hint">Never auto-delete cookies matching these patterns. The allow list always wins over the block list.</p>
+      <textarea id="allowlist" rows="5" placeholder="*.mybank.com&#10;accounts.google.com"></textarea>
+    </section>
+
+    <section class="card">
+      <h2>🧹 Auto-clean</h2>
+      <label class="row"><input type="checkbox" id="autoDeleteBlocked" />
+        <span><strong>Live block</strong> — delete block-listed cookies the moment they're set</span></label>
+      <label class="row"><input type="checkbox" id="clearOnStartup" />
+        <span><strong>Clear on browser start</strong> — remove all block-listed cookies when Chrome opens</span></label>
+      <label class="row"><input type="checkbox" id="clearOnTabClose" />
+        <span><strong>Clear on tab close</strong> — when a block-listed site's tab closes, clear its cookies
+        <em>(best-effort — Chrome has no reliable "browser close" event in MV3)</em></span></label>
+    </section>
+
+    <section class="card help">
+      <h2>Pattern syntax</h2>
+      <ul>
+        <li><code>example.com</code> — exact domain match</li>
+        <li><code>*.google.com</code> — wildcard (any subdomain)</li>
+        <li><code>/(^|\.)google\.com/i</code> — full regex (wrap in slashes, flags after)</li>
+      </ul>
+    </section>
+
+    <footer class="actions">
+      <button id="save" class="btn primary">Save settings</button>
+      <button id="cleanNow" class="btn">Run clean-up now</button>
+      <span id="status" class="status"></span>
+    </footer>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>
