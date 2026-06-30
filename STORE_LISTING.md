@@ -4,7 +4,7 @@
 Cookie Editor Pro — View, Edit, Clean & Manage Cookies
 
 ## Summary (132 char max)
-View, edit, delete, protect & back up cookies — incl. partitioned/isolated ones. Allow/block lists + auto-clean. 100% local.
+View, edit, delete, protect & back up cookies, incl. partitioned/isolated ones. Allow/block lists + auto-clean. 100% local.
 
 ## Description
 **Cookie Editor Pro** is the simple, safe, powerful way to view, edit, clean, and manage the cookies in your browser — built for transparency.
